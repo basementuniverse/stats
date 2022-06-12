@@ -1,0 +1,46 @@
+{
+  "name": "@basementuniverse/stats",
+  "version": "1.0.0",
+  "description": "Basic statistics functions",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build-docs": "node node_modules/jsdoc-to-markdown/bin/cli.js build/index.js --template readme-template.md > README.md",
+    "test": "npx jest ./test"
+  },
+  "keywords": [
+    "stats",
+    "statistics",
+    "mean",
+    "median",
+    "mode",
+    "variance",
+    "quartile",
+    "range",
+    "deviation",
+    "outliers"
+  ],
+  "author": "Gordon Larrigan <gordonlarrigan@gmail.com> (https://gordonlarrigan.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basementuniverse/stats.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.4.1",
+    "jest": "^27.0.6",
+    "jsdoc-to-markdown": "^7.1.1",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.jest.json"
+      }
+    }
+  }
+}
