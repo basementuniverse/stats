@@ -1,3 +1,23 @@
+function minArray(a: number[]): number {
+  let length = a.length;
+  let min = Infinity;
+
+  while (length--) {
+    min = a[length] < min ? a[length] : min;
+  }
+  return min;
+}
+
+function maxArray(a: number[]): number {
+  let length = a.length;
+  let max = -Infinity;
+
+  while (length--) {
+    max = a[length] > max ? a[length] : max;
+  }
+  return max;
+}
+
 /**
  * Find the mean of a list of numbers
  * @param {number[]} data An array of numbers
@@ -79,7 +99,7 @@ export function range(data: number[]): {
     };
   }
 
-  const min = Math.min(...data), max = Math.max(...data);
+  const min = minArray(data), max = maxArray(data);
 
   return {
     min,
