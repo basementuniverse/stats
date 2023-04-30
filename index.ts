@@ -45,7 +45,7 @@ export function median(data: number[]): number {
     return 0;
   }
 
-  const sortedData = [...data].sort();
+  const sortedData = [...data].sort((a, b) => a - b);
   if (n % 2 === 0) {
     return mean([sortedData[n / 2 - 1], sortedData[n / 2]]);
   }
@@ -162,7 +162,7 @@ export function iqr(data: number[]): {
     return { range: 0 };
   }
 
-  const sortedData = [...data].sort();
+  const sortedData = [...data].sort((a, b) => a - b);
   let q1: number = 0, q3: number = 0;
   if (n % 2 === 0) {
     q1 = median(sortedData.slice(0, half));
