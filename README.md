@@ -43,6 +43,20 @@ import {
 ## Functions
 
 <dl>
+<dt><a href="#minArray">minArray(a)</a> ⇒ <code>number</code></dt>
+<dd><p>Safe version of <code>Math.min</code></p>
+<p>Native <code>Math.min</code> throws:</p>
+<pre><code>`Uncaught RangeError: Maximum call stack size exceeded`
+</code></pre>
+<p>when passing in a huge number of arguments (&gt;~100k).</p>
+</dd>
+<dt><a href="#maxArray">maxArray(a)</a> ⇒ <code>number</code></dt>
+<dd><p>Safe version of <code>Math.max</code></p>
+<p>Native <code>Math.max</code> throws:</p>
+<pre><code>`Uncaught RangeError: Maximum call stack size exceeded`
+</code></pre>
+<p>when passing in a huge number of arguments (&gt;~100k).</p>
+</dd>
 <dt><a href="#mean">mean(data)</a> ⇒ <code>number</code></dt>
 <dd><p>Find the mean of a list of numbers</p>
 </dd>
@@ -65,6 +79,42 @@ import {
 <dd><p>Calculate the (exclusive) interquartile range of a list of numbers</p>
 </dd>
 </dl>
+
+<a name="minArray"></a>
+
+## minArray(a) ⇒ <code>number</code>
+Safe version of `Math.min`
+
+Native `Math.min` throws:
+```
+`Uncaught RangeError: Maximum call stack size exceeded`
+```
+when passing in a huge number of arguments (>~100k).
+
+**Kind**: global function  
+**Returns**: <code>number</code> - The minimum number from the array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array.&lt;number&gt;</code> | An array of numbers |
+
+<a name="maxArray"></a>
+
+## maxArray(a) ⇒ <code>number</code>
+Safe version of `Math.max`
+
+Native `Math.max` throws:
+```
+`Uncaught RangeError: Maximum call stack size exceeded`
+```
+when passing in a huge number of arguments (>~100k).
+
+**Kind**: global function  
+**Returns**: <code>number</code> - The maximum number from the array  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| a | <code>Array.&lt;number&gt;</code> | An array of numbers |
 
 <a name="mean"></a>
 

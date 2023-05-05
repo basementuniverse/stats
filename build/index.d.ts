@@ -1,4 +1,28 @@
 /**
+ * Safe version of `Math.min`
+ *
+ * Native `Math.min` throws:
+ * ```
+ * `Uncaught RangeError: Maximum call stack size exceeded`
+ * ```
+ * when passing in a huge number of arguments (>~100k).
+ * @param {number[]} a An array of numbers
+ * @returns {number} The minimum number from the array
+ */
+export declare function minArray(a: number[]): number;
+/**
+ * Safe version of `Math.max`
+ *
+ * Native `Math.max` throws:
+ * ```
+ * `Uncaught RangeError: Maximum call stack size exceeded`
+ * ```
+ * when passing in a huge number of arguments (>~100k).
+ * @param {number[]} a An array of numbers
+ * @returns {number} The maximum number from the array
+ */
+export declare function maxArray(a: number[]): number;
+/**
  * Find the mean of a list of numbers
  * @param {number[]} data An array of numbers
  * @returns {number} The mean of a list of numbers

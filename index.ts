@@ -1,4 +1,15 @@
-function minArray(a: number[]): number {
+/**
+ * Safe version of `Math.min`
+ *
+ * Native `Math.min` throws:
+ * ```
+ * `Uncaught RangeError: Maximum call stack size exceeded`
+ * ```
+ * when passing in a huge number of arguments (>~100k).
+ * @param {number[]} a An array of numbers
+ * @returns {number} The minimum number from the array
+ */
+export function minArray(a: number[]): number {
   let length = a.length;
   let min = Infinity;
 
@@ -8,7 +19,18 @@ function minArray(a: number[]): number {
   return min;
 }
 
-function maxArray(a: number[]): number {
+/**
+ * Safe version of `Math.max`
+ *
+ * Native `Math.max` throws:
+ * ```
+ * `Uncaught RangeError: Maximum call stack size exceeded`
+ * ```
+ * when passing in a huge number of arguments (>~100k).
+ * @param {number[]} a An array of numbers
+ * @returns {number} The maximum number from the array
+ */
+export function maxArray(a: number[]): number {
   let length = a.length;
   let max = -Infinity;
 

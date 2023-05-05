@@ -1,4 +1,6 @@
 import {
+  minArray,
+  maxArray,
   mean,
   median,
   mode,
@@ -7,6 +9,34 @@ import {
   standardDeviation,
   iqr,
 } from '../index';
+
+describe('minArray', () => {
+  it('should return the minimum value of an array of numbers', () => {
+    expect(minArray([1, 2, 3])).toBe(1);
+    expect(minArray([3, 2, 1])).toBe(1);
+    expect(minArray([2, 3, 1])).toBe(1);
+  });
+
+  it('it should work with a huge array', () => {
+    const data = Array.from({ length: 1000000 }, (_, i) => i === 1234 ? 5 : 6);
+
+    expect(minArray(data)).toBe(5);
+  });
+});
+
+describe('maxArray', () => {
+  it('should return the maximum value from an array of numbers', () => {
+    expect(maxArray([1, 2, 3])).toBe(3);
+    expect(maxArray([3, 2, 1])).toBe(3);
+    expect(maxArray([2, 3, 1])).toBe(3);
+  });
+
+  it('should work with a huge array', () => {
+    const data = Array.from({ length: 1000000 }, (_, i) => i === 1234 ? 6 : 5);
+
+    expect(maxArray(data)).toBe(6);
+  });
+});
 
 describe('mean', () => {
   it('should return 0 when given an empty dataset', () => {
