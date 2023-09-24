@@ -105,6 +105,14 @@ export function mode(data: number[]): number {
  * Find the range of a list of numbers
  * @param {number[]} data An array of numbers
  * @returns {object} An object containing the min, max and range
+ * @example Returned format:
+ * ```
+ * {
+ *   min: 1,
+ *   max: 5,
+ *   range: 4
+ * }
+ * ```
  */
 export function range(data: number[]): {
   min: number;
@@ -169,7 +177,16 @@ export function standardDeviation(data: number[], sample: boolean = false): numb
 /**
  * Calculate the (exclusive) interquartile range of a list of numbers
  * @param {number[]} data An array of numbers
- * @returns {object} An object containing the Q1 median, Q3 median and interquartile range
+ * @returns {object} An object containing the Q1, Q2 and Q3 medians and interquartile range
+ * @example Returned format:
+ * ```
+ * {
+ *   q1: 1,
+ *   q2: 3,
+ *   q3: 5,
+ *   range: 4
+ * }
+ * ```
  */
 export function iqr(data: number[]): {
   q1?: number;

@@ -164,6 +164,15 @@ Find the range of a list of numbers
 | --- | --- | --- |
 | data | <code>Array.&lt;number&gt;</code> | An array of numbers |
 
+**Example**  
+Returned format:
+```
+{
+  min: 1,
+  max: 5,
+  range: 4
+}
+```
 <a name="variance"></a>
 
 ## variance(data, sample) ⇒ <code>number</code>
@@ -196,9 +205,19 @@ Calculate the standard deviation of a list of numbers
 Calculate the (exclusive) interquartile range of a list of numbers
 
 **Kind**: global function  
-**Returns**: <code>object</code> - An object containing the Q1 median, Q3 median and interquartile range  
+**Returns**: <code>object</code> - An object containing the Q1, Q2 and Q3 medians and interquartile range  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | data | <code>Array.&lt;number&gt;</code> | An array of numbers |
 
+**Example**  
+Returned format:
+```
+{
+  q1: 1,
+  q2: 3,
+  q3: 5,
+  range: 4
+}
+```
