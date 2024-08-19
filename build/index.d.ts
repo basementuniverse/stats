@@ -92,3 +92,29 @@ export declare function iqr(data: number[]): {
     q3?: number;
     range: number;
 };
+export declare type Bucket = {
+    min: number;
+    max: number;
+    frequency: number;
+};
+/**
+ * Generate a histogram by splitting data into buckets of the specified size
+ * and counting the frequency of items in each bucket
+ *
+ * Within each bucket, min is inclusive and max is exclusive
+ *
+ * @param {number[]} data An array of numbers
+ * @param {number} bucketWidth The width of each bucket
+ * @returns {Bucket[]} An array of buckets
+ * @example Returned format:
+ * ```
+ * [
+ *   {
+ *     min: 1,
+ *     max: 3,
+ *     frequency: 4
+ *   }
+ * ]
+ * ```
+ */
+export declare function histogram(data: number[], bucketWidth?: number): Bucket[];

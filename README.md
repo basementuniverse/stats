@@ -78,6 +78,11 @@ import {
 <dt><a href="#iqr">iqr(data)</a> ⇒ <code>object</code></dt>
 <dd><p>Calculate the (exclusive) interquartile range of a list of numbers</p>
 </dd>
+<dt><a href="#histogram">histogram(data, bucketWidth)</a> ⇒ <code>Array.&lt;Bucket&gt;</code></dt>
+<dd><p>Generate a histogram by splitting data into buckets of the specified size
+and counting the frequency of items in each bucket</p>
+<p>Within each bucket, min is inclusive and max is exclusive</p>
+</dd>
 </dl>
 
 <a name="minArray"></a>
@@ -220,4 +225,31 @@ Returned format:
   q3: 5,
   range: 4
 }
+```
+<a name="histogram"></a>
+
+## histogram(data, bucketWidth) ⇒ <code>Array.&lt;Bucket&gt;</code>
+Generate a histogram by splitting data into buckets of the specified size
+and counting the frequency of items in each bucket
+
+Within each bucket, min is inclusive and max is exclusive
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;Bucket&gt;</code> - An array of buckets  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| data | <code>Array.&lt;number&gt;</code> |  | An array of numbers |
+| bucketWidth | <code>number</code> | <code>1</code> | The width of each bucket |
+
+**Example**  
+Returned format:
+```
+[
+  {
+    min: 1,
+    max: 3,
+    frequency: 4
+  }
+]
 ```

@@ -8,6 +8,7 @@ import {
   variance,
   standardDeviation,
   iqr,
+  histogram,
 } from '../index';
 
 describe('minArray', () => {
@@ -190,5 +191,55 @@ describe('iqr', () => {
       q3: 81,
       range: 24,
     });
+  });
+});
+
+describe('histogram', () => {
+  it('should return an empty list of buckets when the dataset is empty', () => {
+    expect(histogram([])).toStrictEqual([]);
+  });
+
+  it('should return a list of buckets containing datapoint frequencies', () => {
+    expect(histogram([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([
+      { min: 1, max: 2, frequency: 1 },
+      { min: 2, max: 3, frequency: 1 },
+      { min: 3, max: 4, frequency: 1 },
+      { min: 4, max: 5, frequency: 1 },
+      { min: 5, max: 6, frequency: 1 },
+      { min: 6, max: 7, frequency: 1 },
+      { min: 7, max: 8, frequency: 1 },
+      { min: 8, max: 9, frequency: 1 },
+      { min: 9, max: 10, frequency: 1 },
+      { min: 10, max: 11, frequency: 1 },
+    ]);
+
+    expect(histogram([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5])).toStrictEqual([
+      { min: 1, max: 2, frequency: 2 },
+      { min: 2, max: 3, frequency: 2 },
+      { min: 3, max: 4, frequency: 2 },
+      { min: 4, max: 5, frequency: 2 },
+      { min: 5, max: 6, frequency: 2 },
+      { min: 6, max: 7, frequency: 1 },
+      { min: 7, max: 8, frequency: 1 },
+      { min: 8, max: 9, frequency: 1 },
+      { min: 9, max: 10, frequency: 1 },
+      { min: 10, max: 11, frequency: 1 },
+    ]);
+
+    expect(histogram([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])).toStrictEqual([
+      { min: 1, max: 2, frequency: 10 },
+    ]);
+
+    expect(histogram([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2])).toStrictEqual([
+      { min: 1, max: 2, frequency: 10 },
+      { min: 2, max: 3, frequency: 5 },
+    ]);
+
+    expect(histogram([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5], 3)).toStrictEqual([
+      { min: 1, max: 4, frequency: 6 },
+      { min: 4, max: 7, frequency: 5 },
+      { min: 7, max: 10, frequency: 3 },
+      { min: 10, max: 13, frequency: 1 },
+    ]);
   });
 });

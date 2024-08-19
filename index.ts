@@ -218,3 +218,53 @@ export function iqr(data: number[]): {
     range: q3 - q1,
   };
 }
+
+export type Bucket = {
+  min: number;
+  max: number;
+  frequency: number;
+};
+
+/**
+ * Generate a histogram by splitting data into buckets of the specified size
+ * and counting the frequency of items in each bucket
+ *
+ * Within each bucket, min is inclusive and max is exclusive
+ *
+ * @param {number[]} data An array of numbers
+ * @param {number} bucketWidth The width of each bucket
+ * @returns {Bucket[]} An array of buckets
+ * @example Returned format:
+ * ```
+ * [
+ *   {
+ *     min: 1,
+ *     max: 3,
+ *     frequency: 4
+ *   }
+ * ]
+ * ```
+ */
+export function histogram(
+  data: number[],
+  bucketWidth: number = 1
+): Bucket[] {
+  const min = minArray(data);
+  const max = maxArray(data);
+
+  const buckets: Bucket[] = [];
+  for (let i = min; i <= max; i += bucketWidth) {
+    buckets.push({
+      min: i,
+      max: i + bucketWidth,
+      frequency: 0,
+    });
+  }
+
+  data.forEach(v => {
+    const bucket = Math.floor((v - min) / bucketWidth);
+    buckets[bucket].frequency++;
+  });
+
+  return buckets;
+}
