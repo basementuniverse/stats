@@ -219,6 +219,32 @@ export function iqr(data: number[]): {
   };
 }
 
+/**
+ * Find outliers in a list of numbers using the IQR method
+ * @param {number[]} data An array of numbers
+ * @returns {number[]} An array of indexes for the outliers
+ */
+export function outliers(data: number[]): number[] {
+  const { length: n } = data;
+
+  if (n < 4) {
+    return [];
+  }
+
+  const { q1, q3, range } = iqr(data);
+
+  if (q1 === undefined || q3 === undefined) {
+    return [];
+  }
+
+  const lower = q1 - 1.5 * range;
+  const upper = q3 + 1.5 * range;
+
+  return data
+    .map((v, i) => (v < lower || v > upper) ? i : -1)
+    .filter(v => v !== -1);
+}
+
 export type Bucket = {
   min: number;
   max: number;

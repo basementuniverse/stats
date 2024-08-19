@@ -8,6 +8,7 @@ import {
   variance,
   standardDeviation,
   iqr,
+  outliers,
   histogram,
 } from '../index';
 
@@ -191,6 +192,26 @@ describe('iqr', () => {
       q3: 81,
       range: 24,
     });
+  });
+});
+
+describe('outliers', () => {
+  it('should return no outliers when the dataset is empty', () => {
+    expect(outliers([])).toStrictEqual([]);
+  });
+
+  it('should return no outliers when the dataset has fewer than 4 numbers', () => {
+    expect(outliers([1, 2, 3])).toStrictEqual([]);
+  });
+
+  it('should return no outliers when the dataset has no outliers', () => {
+    expect(outliers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([]);
+  });
+
+  it('should return indexes for the outliers of a dataset', () => {
+    expect(outliers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100])).toStrictEqual([10]);
+    expect(outliers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000])).toStrictEqual([10, 11]);
+    expect(outliers([-100, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000])).toStrictEqual([0, 11, 12]);
   });
 });
 

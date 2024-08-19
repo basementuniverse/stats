@@ -21,6 +21,8 @@ const {
   variance,
   standardDeviation,
   iqr,
+  outliers,
+  histogram,
 } = require('@basementuniverse/stats');
 ```
 
@@ -35,6 +37,8 @@ import {
   variance,
   standardDeviation,
   iqr,
+  outliers,
+  histogram,
 } from '@basementuniverse/stats';
 ```
 
@@ -77,6 +81,9 @@ import {
 </dd>
 <dt><a href="#iqr">iqr(data)</a> ⇒ <code>object</code></dt>
 <dd><p>Calculate the (exclusive) interquartile range of a list of numbers</p>
+</dd>
+<dt><a href="#outliers">outliers(data)</a> ⇒ <code>Array.&lt;number&gt;</code></dt>
+<dd><p>Find outliers in a list of numbers using the IQR method</p>
 </dd>
 <dt><a href="#histogram">histogram(data, bucketWidth)</a> ⇒ <code>Array.&lt;Bucket&gt;</code></dt>
 <dd><p>Generate a histogram by splitting data into buckets of the specified size
@@ -226,6 +233,18 @@ Returned format:
   range: 4
 }
 ```
+<a name="outliers"></a>
+
+## outliers(data) ⇒ <code>Array.&lt;number&gt;</code>
+Find outliers in a list of numbers using the IQR method
+
+**Kind**: global function  
+**Returns**: <code>Array.&lt;number&gt;</code> - An array of indexes for the outliers  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| data | <code>Array.&lt;number&gt;</code> | An array of numbers |
+
 <a name="histogram"></a>
 
 ## histogram(data, bucketWidth) ⇒ <code>Array.&lt;Bucket&gt;</code>

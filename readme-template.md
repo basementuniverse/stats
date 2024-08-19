@@ -21,6 +21,8 @@ const {
   variance,
   standardDeviation,
   iqr,
+  outliers,
+  histogram,
 } = require('@basementuniverse/stats');
 ```
 
@@ -35,6 +37,8 @@ import {
   variance,
   standardDeviation,
   iqr,
+  outliers,
+  histogram,
 } from '@basementuniverse/stats';
 ```
 

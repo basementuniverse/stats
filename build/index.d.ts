@@ -92,6 +92,12 @@ export declare function iqr(data: number[]): {
     q3?: number;
     range: number;
 };
+/**
+ * Find outliers in a list of numbers using the IQR method
+ * @param {number[]} data An array of numbers
+ * @returns {number[]} An array of indexes for the outliers
+ */
+export declare function outliers(data: number[]): number[];
 export declare type Bucket = {
     min: number;
     max: number;
